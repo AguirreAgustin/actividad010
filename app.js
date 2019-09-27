@@ -4,6 +4,10 @@ const mustacheExpress = require('mustache-express')
 const app = express()
 const mysql = require('mysql');
 const dotenv = require('dotenv');
+const passport = require("passport");
+const auth = require("./auth");
+auth(passport);
+app.use(passport.initialize());
 
 dotenv.config();
 var msj = process.env.MENSAJE;
@@ -41,7 +45,19 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(__dirname + '/wwwroot'))
 
 app.use(bodyParser.json());
-//+---------------------------------------- AJAX -----------------
+
+//-------------------------- GOOGLE ------------------------------
+
+app.get('/login/google', passport.authenticate('google', {
+    scope: ['https://www.googleapis.com/auth/userinfo.profile']
+}));
+app.get('/login/google/callback',
+    passport.authenticate('google', {
+        failureRedirect: '/'
+    }),
+    (req, res) => {}
+);
+//----------------------------------------- AJAX -----------------
 app.get('/ajax', function (req, res) {
     res.render("homeAjax.html")
 })
