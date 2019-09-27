@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List To Do - Aguirre R. D. Agustín</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="google" content="notranslate" />
+    
+    <style>
+        #footer {
+            border-top: 2px solid goldenrod;
+            background:darkslategrey;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            
+        }
+
+        #help{
+            height: 350px;
+            background-color:darkgrey;
+        }
+
+        h3{
+            color: gold;
+            text-shadow: 1px 1px 2px gold;
+        }
+    </style>
+</head>
+
+<body style="background-image: url(http://eskipaper.com/images/black-panther-wallpaper-7.jpg)">
+
+    <header style="background-color:goldenrod" class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar rounded">
+        <img src="https://pitnit.blob.core.windows.net/icon1/1505821849431.76.png" width="25" height="25" class="rounded">
+        <h3 style="color:darkslategray">Universidad de la Cuenca del Plata - Paradigmas & L. de Prog. 3 </h3>
+    </header>
+     <!--<img src="http://eskipaper.com/images/black-panther-wallpaper-7.jpg" class="img-fluid" alt="Responsive image">-->
+    <div class="container">
+                <div class="row" >
+                   
+                  <div class="col-md">
+                        
+
+
+
+
+
+                        <i><h1 style="color:ghostwhite">List ToDo</h1></i>
+    
+                        <!--<form method="post" onKeypress="if(event.keyCode == 13) event.returnValue = false;" >
+                            <input type="text" name="descripcion" id="descripcion">
+                            <input type="submit" value="Add" />
+                        </form>-->
+                        <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                            <form method="post" onKeypress="if(event.keyCode == 13) event.returnValue = false;" >
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="submit" id="botonAdd"style="color: white">Add</button>
+                                    </div>
+                                    <input required type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Insertar algun texto..." aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                </div>
+                            </form>
+                            <form method="post">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button  type="submit" id="enlaceVuelta" class="btn btn-link">Dar Vuelta a la lista</button>
+                                        </div>
+                                        <input type="hidden" required  name="descripcion" value="darVuelta" >          
+                                    </div>
+                            </form>
+                        </div>
+                        
+                        <ol type="I">
+                            {{#elementos}}
+                                <li style="color:gold"><p style="font-family: courier;"><strong>{{descripcion}}</strong></p></li>
+                                
+                                <div class="btn-group" role="group">
+                                    {{#visualizarsubir}}
+                                    <form method="post">                         
+                                    <input type="hidden" required  name="posicion" value="{{posicion}}" >
+                                    <input type="hidden" required  name="descripcion" value="subir" >
+                                    <button type="submit"  id="botonSubir" class="btn btn-outline-warning">^</button>
+                                </form>{{/visualizarsubir}}
+                                {{#visualizarbajar}}
+                                <form method="post">                        
+                                    <input type="hidden"   name="posicion" value="{{posicion}}" >
+                                    <input type="hidden"   name="descripcion" value="bajar" >
+                                    <button type="submit"  id="botonBajar"class="btn btn-outline-warning">v</button>
+                                </form>{{/visualizarbajar}}
+                                <form method="post">                        
+                                    <input type="hidden" required  name="posicion" value="{{posicion}}" >
+                                    <input type="hidden" required  name="descripcion" value="eliminar" >
+                                    <button type="submit" id="botonEliminar"class="btn btn-outline-danger">X</button>
+                                </form> 
+                                </div>
+                            {{/elementos}}
+                        </ol>
+
+                        <button><a href="http://www.google.es" target="_blank">Google</a> </button>
+                        
+                        
+
+
+
+
+
+                  </div>
+                <div id="help" class="col-md rounded" style="background-image: url(https://img.freepik.com/foto-gratis/muro-hormigon-gris-texturizado_53876-94016.jpg?size=626&ext=jpg)">
+                   <h1 style="color:honeydew">Help</h1>
+                   <ul style="list-style-type:square;">
+                        <li>Insertar el texto en el <strong><i>"Input"</i></strong>.</li>
+                        <li>Clickear en el botón <strong><i>"Add"</i></strong> para agregar el elemento a la lista.</li>
+                        <li>Clickear en el botón <strong><i>"X"</i></strong> para eliminar el elemento de la lista.</li>
+                        <li>Clickear en el botón <strong><i>"^"</i></strong> para subir en orden el elemento a la lista.</li>
+                        <li>Clickear en el botón <strong><i>"v"</i></strong> para bajar en orden el elemento a la lista.</li> 
+                        <li>Presionar 
+                            <span style="color: #313bf1"><strong>
+                                Dar Vuelta a la lista </strong>
+                            </span> para mostrar la lista dada vuelta.
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+    </div>
+    <footer id="footer" class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar rounded" style="background-image: url(https://www.xmple.com/wallpaper/cyan-gradient-linear-1920x1080-c2-0bb4bb-03272b-a-15-f-14.svg)"><h3 style="color:goldenrod">Aguirre R. D. Agustín  :}</h3></footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
+</body>
+</html>
